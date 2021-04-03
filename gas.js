@@ -14,8 +14,24 @@ const 指定した行を色付けする関数 = ({ sheet, row, color = '#C0C0C0'
   sheet.getRange(row, 1, 1, カラム数).setBackground(color);
 };
 
+const 文字列1が文字列2を含んでいたら真となる関数 = (文字列1, 文字列2) => 文字列1.indexOf(文字列2) !== -1;
+
+const 行がキーワードを含んでいたら真となる関数 = ({ sheet, row, keywords }) => {
+  const arr = sheet.getDataRange().getValues();
+  const columns = arr[row - 1];
+  p(columns);
+};
+
+const キーワードをカラムに持つ行に色を塗る関数 = ({ sheet, keywords }) => {};
+
+const test = (sheet) => {
+  p(文字列1が文字列2を含んでいたら真となる関数('bbaaabbああいうあ', 'あああ'));
+};
+
 const myFunction = () => {
   const sheet = SpreadsheetApp.openById(id).getSheetByName(sheetName);
+  test(sheet);
+  return;
   指定した行を色付けする関数({ sheet, row: 12 });
 };
 
