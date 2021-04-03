@@ -4,11 +4,7 @@ const sheetName = 'シート1';
 
 const 指定した行を返す関数 = ({ sheet, row }) => sheet.getDataRange().getValues()[row - 1];
 
-const 指定した行のカラム数を返す関数 = ({ sheet, row }) => {
-  const arr = sheet.getDataRange().getValues();
-  const rowLength = arr[row - 1].length;
-  return rowLength;
-};
+const 指定した行のカラム数を返す関数 = ({ sheet, row }) => 指定した行を返す関数({ sheet, row }).length;
 
 const 指定した行を色付けする関数 = ({ sheet, row, color = '#C0C0C0' }) => {
   const カラム数 = 指定した行のカラム数を返す関数({ sheet, row });
@@ -34,7 +30,7 @@ const 行がキーワードを含んでいたら真となる関数 = ({ sheet, r
 const キーワードをカラムに持つ行に色を塗る関数 = ({ sheet, keywords }) => {};
 
 const test = (sheet) => {
-  p(指定した行を返す関数({ sheet, row: 3 }));
+  p(指定した行のカラム数を返す関数({ sheet, row: 1 }));
 };
 
 const myFunction = () => {
