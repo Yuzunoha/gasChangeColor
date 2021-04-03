@@ -19,13 +19,20 @@ const 文字列1が文字列2を含んでいたら真となる関数 = (文字�
 const 行がキーワードを含んでいたら真となる関数 = ({ sheet, row, keywords }) => {
   const arr = sheet.getDataRange().getValues();
   const columns = arr[row - 1];
-  p(columns);
+  for (const column of columns) {
+    for (const keyword of keywords) {
+      if (文字列1が文字列2を含んでいたら真となる関数(column, keyword)) {
+        return true;
+      }
+    }
+  }
+  return false;
 };
 
 const キーワードをカラムに持つ行に色を塗る関数 = ({ sheet, keywords }) => {};
 
 const test = (sheet) => {
-  p(文字列1が文字列2を含んでいたら真となる関数('bbaaabbああいうあ', 'あああ'));
+  p(行がキーワードを含んでいたら真となる関数({ sheet, row: 1, keywords: ['a', '払いいいいいい'] }));
 };
 
 const myFunction = () => {
