@@ -9,7 +9,7 @@ const 指定した行のカラム数を返す関数 = (sheet, row) => {
 };
 
 const changeColorForRow = (sheet, row, rowLength, color = '#C0C0C0') => {
-  // getRange(row, column, numRows, numColumns)
+  /* getRange(row, column, numRows, numColumns) */
   const range = sheet.getRange(row, 1, 1, rowLength); // 3行目を左から9セル分
   range.setBackground(color); // 背景色をピンクに
 };
