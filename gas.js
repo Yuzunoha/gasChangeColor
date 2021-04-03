@@ -1,15 +1,18 @@
 const p = console.log;
 const id = '1eLkDb-uN9N9ZZao_2maXx-jWpQz4gvho46fp9ZzdtCY';
 const sheetName = 'シート1';
-const sheet = SpreadsheetApp.openById(id).getSheetByName(sheetName);
+
+const changeColorForRow = (sheet, row, rowLength, color = "#C0C0C0") => {
+  // getRange(row, column, numRows, numColumns)
+  const range = sheet.getRange(row, 1, 1, rowLength); // 3行目を左から9セル分
+  range.setBackground(color); // 背景色をピンクに
+}
 
 const myFunction = () => {
-  var myRange = sheet.getDataRange().getValues();
-  p(myRange.length);
-
-  // getRange(row, column, numRows, numColumns)
-  var range = sheet.getRange(3, 1, 1, 9); // 3行目を左から9セル分
-  range.setBackground('pink'); // 背景色をピンクに
+  const sheet = SpreadsheetApp.openById(id).getSheetByName(sheetName);
+  const myRange = sheet.getDataRange().getValues();
+  p(myRange[3]);
+  changeColorForRow(sheet, 6, 9);
 };
 
 // 参考
