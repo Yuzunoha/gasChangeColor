@@ -2,6 +2,8 @@ const p = console.log;
 const id = '1eLkDb-uN9N9ZZao_2maXx-jWpQz4gvho46fp9ZzdtCY';
 const sheetName = 'シート1';
 
+const 指定した行を返す関数 = ({ sheet, row }) => sheet.getDataRange().getValues()[row - 1];
+
 const 指定した行のカラム数を返す関数 = ({ sheet, row }) => {
   const arr = sheet.getDataRange().getValues();
   const rowLength = arr[row - 1].length;
@@ -32,7 +34,7 @@ const 行がキーワードを含んでいたら真となる関数 = ({ sheet, r
 const キーワードをカラムに持つ行に色を塗る関数 = ({ sheet, keywords }) => {};
 
 const test = (sheet) => {
-  p(行がキーワードを含んでいたら真となる関数({ sheet, row: 1, keywords: ['a', '払いいいいいい'] }));
+  p(指定した行を返す関数({ sheet, row: 3 }));
 };
 
 const myFunction = () => {
