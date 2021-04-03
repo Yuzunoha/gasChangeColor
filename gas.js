@@ -11,3 +11,6 @@ const myFunction = () => {
   var range = sheet.getRange(3, 1, 1, 9); // 3行目を左から9セル分
   range.setBackground('pink'); // 背景色をピンクに
 };
+
+// 参考
+// https://qiita.com/cazimayaa/items/224daebe536799e5a8a2
