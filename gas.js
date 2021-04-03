@@ -15,8 +15,7 @@ const 指定した行を色付けする関数 = ({ sheet, row, color = '#C0C0C0'
 const 文字列1が文字列2を含んでいたら真となる関数 = (文字列1, 文字列2) => 文字列1.indexOf(文字列2) !== -1;
 
 const 行がキーワードを含んでいたら真となる関数 = ({ sheet, row, keywords }) => {
-  const arr = sheet.getDataRange().getValues();
-  const columns = arr[row - 1];
+  const columns = 指定した行を返す関数({ sheet, row });
   for (const column of columns) {
     for (const keyword of keywords) {
       if (文字列1が文字列2を含んでいたら真となる関数(column, keyword)) {
@@ -30,7 +29,7 @@ const 行がキーワードを含んでいたら真となる関数 = ({ sheet, r
 const キーワードをカラムに持つ行に色を塗る関数 = ({ sheet, keywords }) => {};
 
 const test = (sheet) => {
-  p(指定した行のカラム数を返す関数({ sheet, row: 1 }));
+  p(行がキーワードを含んでいたら真となる関数({ sheet, row: 1, keywords: ['ダミー', '払い'] }));
 };
 
 const myFunction = () => {
