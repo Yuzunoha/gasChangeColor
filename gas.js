@@ -27,3 +27,6 @@ const myFunction = () => {
   p(myRange[3]);
   changeColorForRow(sheet, 7, 9);
 };
+
+// 参考
+// https://qiita.com/cazimayaa/items/224daebe536799e5a8a2
