@@ -18,7 +18,7 @@ const 行がキーワードを含んでいたら真となる関数 = ({ sheet, r
   const columns = 指定した行を返す関数({ sheet, row });
   for (const column of columns) {
     for (const keyword of keywords) {
-      if (文字列1が文字列2を含んでいたら真となる関数(column, keyword)) {
+      if (文字列1が文字列2を含んでいたら真となる関数(String(column), keyword)) {
         return true;
       }
     }
@@ -26,17 +26,20 @@ const 行がキーワードを含んでいたら真となる関数 = ({ sheet, r
   return false;
 };
 
-const キーワードをカラムに持つ行に色を塗る関数 = ({ sheet, keywords }) => {};
-
-const test = (sheet) => {
-  p(行がキーワードを含んでいたら真となる関数({ sheet, row: 1, keywords: ['ダミー', '払い'] }));
+const キーワードをカラムに持つ行に色を塗る関数 = ({ sheet, keywords }) => {
+  const arr = sheet.getDataRange().getValues();
+  for (let i = 0; i < arr.length; i++) {
+    const row = i + 1;
+    if (行がキーワードを含んでいたら真となる関数({ sheet, row, keywords })) {
+      指定した行を色付けする関数({ sheet, row });
+    }
+  }
 };
 
 const myFunction = () => {
   const sheet = SpreadsheetApp.openById(id).getSheetByName(sheetName);
-  test(sheet);
-  return;
-  指定した行を色付けする関数({ sheet, row: 12 });
+  const keywords = ['カンポ', 'ラボツト'];
+  キーワードをカラムに持つ行に色を塗る関数({ sheet, keywords });
 };
 
 // 参考
