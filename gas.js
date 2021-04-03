@@ -8,24 +8,16 @@ const 指定した行のカラム数を返す関数 = (sheet, row) => {
   return rowLength;
 };
 
-const changeColorForRow = (sheet, row, rowLength, color = '#C0C0C0') => {
+const changeColorForRow = ({ sheet, row, rowLength, color = '#C0C0C0' }) => {
   /* getRange(row, column, numRows, numColumns) */
   const range = sheet.getRange(row, 1, 1, rowLength); // 3行目を左から9セル分
   range.setBackground(color); // 背景色をピンクに
 };
 
-const test = (sheet) => {
-  p(指定した行のカラム数を返す関数(sheet, 73));
-};
-
 const myFunction = () => {
   const sheet = SpreadsheetApp.openById(id).getSheetByName(sheetName);
-  test(sheet);
-  return;
-
   const myRange = sheet.getDataRange().getValues();
-  p(myRange[3]);
-  changeColorForRow(sheet, 7, 9);
+  changeColorForRow({ sheet, row: 1, rowLength: 1 });
 };
 
 // 参考
