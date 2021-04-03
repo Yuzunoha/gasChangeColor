@@ -1,6 +1,9 @@
-const p = console.log;
-const id = '1eLkDb-uN9N9ZZao_2maXx-jWpQz4gvho46fp9ZzdtCY';
+/**
+ * myFunction を実行すると sheetName 内の keywords を含む行をグレーに塗る
+ */
+const id = 'xxxxxx-xxxxxxxxx_11111-XXXXXXXXXXXXXXXXXXXXX';
 const sheetName = 'シート1';
+const keywords = ['ホゲギンコウ', 'フガカンパニー'];
 
 const 指定した行を返す関数 = ({ dataRangeValues, row }) => dataRangeValues[row - 1];
 
@@ -38,7 +41,6 @@ const キーワードをカラムに持つ行に色を塗る関数 = ({ sheet, k
 
 const myFunction = () => {
   const sheet = SpreadsheetApp.openById(id).getSheetByName(sheetName);
-  const keywords = ['カンポ', 'ラボツト'];
   キーワードをカラムに持つ行に色を塗る関数({ sheet, keywords });
 };
 
